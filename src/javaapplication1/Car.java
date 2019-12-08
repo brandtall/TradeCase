@@ -14,7 +14,7 @@ public class Car extends Item{
     private String engineType;
     private String milage;
 
-    public Car(String make, String engineType, String milage, double price, Seller Owner, String year, String condition) {
+    public Car(String make, String engineType, String milage, String price, Seller Owner, String year, String condition) {
         super(price, Owner, year, condition);
         this.make = make;
         this.engineType = engineType;
@@ -47,7 +47,7 @@ public class Car extends Item{
 
     @Override
     public String toString() {
-        return "Car: " + "\n make: " + make + "\n engineType: " + engineType + "\n milage: " + milage + "\n Price: " + getPrice();
+        return "Car: " + make + ", " + engineType + ", " + milage + ", " + getPrice() + "$, " + getYear() + ", " + getCondition();
     }
     
     

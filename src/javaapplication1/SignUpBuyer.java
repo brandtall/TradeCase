@@ -9,18 +9,18 @@ package javaapplication1;
  *
  * @author webya
  */
-public class SignUp extends javax.swing.JFrame {
+public class SignUpBuyer extends javax.swing.JFrame {
 
-    protected static Seller seller;
-    static SellerMainScreen scm = new SellerMainScreen();
+    protected static Buyer buyer;
+    static BuyerMainScreen bmc = new BuyerMainScreen();
 
     /**
      * Creates new form SignUp
      */
-    public SignUp() {
+    public SignUpBuyer() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        scm.setVisible(false);
+        bmc.setVisible(false);
     }
 
     /**
@@ -48,7 +48,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel2.setText("Phone Number:");
 
-        jTextField2.setText("###");
+        jTextField2.setText("#######");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -57,7 +57,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jLabel3.setText("Address:");
 
-        jTextField3.setText("#St. District  Emirate");
+        jTextField3.setText("#St. District, Emirate");
 
         jButton1.setText("Sign Up");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,10 +122,10 @@ public class SignUp extends javax.swing.JFrame {
         String name = jTextField1.getText();
         String phoneNumber = jTextField2.getText();
         String address = jTextField3.getText();
-        seller = new Seller(name, phoneNumber, address);
-        Introductory.ssu = "YES";
-        scm.setTitle("SELLER: " + SignUp.seller.getName());
-        scm.setVisible(true);
+        buyer = new Buyer(name, phoneNumber, address);
+        Introductory.bsu = "YES";
+        bmc.setTitle("BUYER: " + SignUpBuyer.buyer.getName());
+        bmc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -146,20 +146,21 @@ public class SignUp extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpBuyer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpBuyer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpBuyer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpBuyer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignUp().setVisible(true);
+                new SignUpBuyer().setVisible(true);
             }
         });
     }

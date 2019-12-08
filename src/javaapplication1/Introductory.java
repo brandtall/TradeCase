@@ -11,12 +11,17 @@ package javaapplication1;
  */
 public class Introductory extends javax.swing.JFrame {
     SignUp s1 = new SignUp();
+    SignUpBuyer b1 = new SignUpBuyer();
+    static String ssu = "NO";
+    static String bsu = "NO";
+
     /**
      * Creates new form Introductory
      */
     public Introductory() {
         initComponents();
          s1.setVisible(false);
+         b1.setVisible(false);
     }
 
     /**
@@ -83,11 +88,21 @@ public class Introductory extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sellerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellerButtonActionPerformed
-        s1.setVisible(true);
+        if(ssu.equals("NO")) {
+            s1.setVisible(true);
+        }
+        else {
+         SignUp.scm.setVisible(true);
+        }
     }//GEN-LAST:event_sellerButtonActionPerformed
-
+    
     private void buyerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyerButtonActionPerformed
-        // TODO add your handling code here:
+        if (bsu.equals("NO")) {
+         b1.setVisible(true);   
+        } else {
+         SignUpBuyer.bmc.setVisible(true);
+        }
+        
     }//GEN-LAST:event_buyerButtonActionPerformed
 
     /**

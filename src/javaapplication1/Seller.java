@@ -13,8 +13,7 @@ import java.util.ArrayList;
  */
 public class Seller extends Person{
     protected ArrayList<Item> forSale = new ArrayList();
-    protected ArrayList<Offers> offers = new ArrayList();
-
+    protected ArrayList<Offers> offerList = new ArrayList();
     public Seller(String name, String phoneNumber, String Address) {
         super(name, phoneNumber, Address);
     }
@@ -24,13 +23,15 @@ public class Seller extends Person{
     public void removeItemFromSale(Item item) {
         forSale.remove(item);
     }
-    public void recieveOffer(Offers buyer) {
-        offers.add(buyer);
+    public void addOffer(Offers offer) {
+        offerList.add(offer);
     }
-    public void sell(Offers buyer) {
-        for (int i = 0; i < offers.size(); i++) {
-            if(offers.contains(offers.get(i))) {
-                offers.remove(offers.get(i));
+    public void sell(Offers offer) {
+        for (int i = 0; i < offerList.size(); i++) {
+            if(offerList.get(i).item.equals(offer.item)) {
+                offerList.remove(i);
+                forSale.get(forSale.indexOf(offer.item)).setStatus("SOLD");
+                break;
             }
         }
     }

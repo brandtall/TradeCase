@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package javaapplication1;
+import java.lang.Double;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -26,6 +27,12 @@ public class Tester {
 //        Seller s1 = new Seller(name, phoneNumber, address);
 //        System.out.println(s1.toString());
 //
-         arr = new ArrayList();
+//         arr = new ArrayList();
+
+    Double a = new Double(2);
+    boolean l = a instanceof Double;
+        System.out.println(l);
+        
+    }
    }
-}
+

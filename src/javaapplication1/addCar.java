@@ -5,11 +5,13 @@
  */
 package javaapplication1;
 
+import java.awt.Image;
 import java.io.File;
 
 import javax.swing.JFileChooser;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -19,8 +21,10 @@ import javax.swing.ImageIcon;
  */
 public class addCar extends javax.swing.JFrame {
 
+    protected ImageIcon icon;
 //    SellerMainScreen smc = new SellerMainScreen();
-    
+//    static protected ArrayList<BufferedImage> imgs = new ArrayList();
+
     /**
      * Creates new form addCar1
      */
@@ -28,7 +32,6 @@ public class addCar extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 //        smc.setVisible(false);
-
 
     }
 
@@ -45,19 +48,19 @@ public class addCar extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         status = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,16 +73,23 @@ public class addCar extends javax.swing.JFrame {
             }
         });
 
+        jTextField3.setText("###KM");
+
         jLabel4.setText("Price");
 
         jLabel5.setText("Year:");
+
+        jTextField5.setText("####");
 
         jLabel1.setText("Make:");
 
         jLabel6.setText("Condition:");
 
+        jTextField1.setText("Manufacturer");
+
         jLabel2.setText("Engine Type:");
 
+        jTextField2.setText("#V");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -97,7 +107,22 @@ public class addCar extends javax.swing.JFrame {
 
         status.setText("Status");
 
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("Photo");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Perfect", "Very Good", "Good", "Bad" }));
+        jComboBox2.setToolTipText("");
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jTextField4.setText("$$");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,7 +131,7 @@ public class addCar extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(status)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
             .addGroup(layout.createSequentialGroup()
@@ -124,19 +149,19 @@ public class addCar extends javax.swing.JFrame {
                     .addComponent(jTextField1)
                     .addComponent(jTextField2)
                     .addComponent(jTextField3)
-                    .addComponent(jTextField4)
                     .addComponent(jTextField5)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, 191, Short.MAX_VALUE)
+                    .addComponent(jTextField4))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -149,20 +174,25 @@ public class addCar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jButton2))
@@ -180,11 +210,16 @@ public class addCar extends javax.swing.JFrame {
         String make = jTextField1.getText();
         String engineType = jTextField2.getText();
         String milage = jTextField3.getText();
-        double price = Double.parseDouble(jTextField4.getText());
+        String price = jTextField4.getText();
         String year = jTextField5.getText();
-        String condition = jTextField6.getText();
+        String condition = (String) jComboBox2.getSelectedItem();
         Seller s1 = SignUp.seller;
         Item i = new Car(make, engineType, milage, price, s1, year, condition);
+        if (icon != null) {
+            i.icon = icon;
+        } else {
+            i.setStatus("NO PHOTO");
+        }
         s1.addItemForSale(i);
         this.setVisible(false);
 //        smc.setVisible(true);
@@ -205,16 +240,26 @@ public class addCar extends javax.swing.JFrame {
             try {
                 status.setText("Opening image file");
                 img = ImageIO.read(file);
-                ImageIcon icon = new ImageIcon(img);
+                Image newImg = img.getScaledInstance(340, 211, java.awt.Image.SCALE_SMOOTH);
+                icon = new ImageIcon(newImg);
                 jLabel8.setIcon(icon);
+
             } catch (IOException ex) {
                 status.setText("Error loading the image");
             }
 
         } else {
-            status.setText("Open command cancelled by user." );
+            status.setText("Open command cancelled by user.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,14 +294,15 @@ public class addCar extends javax.swing.JFrame {
             public void run() {
                 new addCar().setVisible(true);
             }
-            
+
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -270,7 +316,6 @@ public class addCar extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel status;
     // End of variables declaration//GEN-END:variables
 }

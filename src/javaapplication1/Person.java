@@ -49,7 +49,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "name=" + name + ", phoneNumber=" + phoneNumber + ", Address=" + Address + '}';
+        return "Name: " + name + ", Phone Number: " + phoneNumber + ", Address: " + Address;
     }
 
 

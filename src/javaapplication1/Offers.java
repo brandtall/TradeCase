@@ -10,15 +10,17 @@ package javaapplication1;
  * @author webya
  */
 public class Offers {
-    private double bid;
+    protected Item item;
+    private String bid;
     private Buyer Buyer;
 
-    public Offers(double bid, Buyer Buyer) {
+    public Offers(String bid, Buyer Buyer, Item item) {
         this.bid = bid;
         this.Buyer = Buyer;
+        this.item = item;
     }
 
-    public double getBid() {
+    public String getBid() {
         return bid;
     }
 
@@ -26,7 +28,7 @@ public class Offers {
         return Buyer;
     }
 
-    public void getBid(double bid) {
+    public void getBid(String bid) {
         this.bid = bid;
     }
 
@@ -36,7 +38,7 @@ public class Offers {
 
     @Override
     public String toString() {
-        return "Offers{" + "bid=" + bid + ", Buyer=" + Buyer + '}';
+        return "Offers: " + bid + ", " + Buyer + ", " + item.toString();
     }
     
 }

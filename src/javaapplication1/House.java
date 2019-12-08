@@ -16,7 +16,7 @@ public class House extends Item {
     private String noOfRooms;
     private String noOfFloors;
 
-    public House(String size, String location, String noOfRooms, String noOfFloors, double price, Seller Owner, String year, String condition) {
+    public House(String size, String location, String noOfRooms, String noOfFloors, String price, Seller Owner, String year, String condition) {
         super(price, Owner, year, condition);
         this.size = size;
         this.location = location;
@@ -58,7 +58,7 @@ public class House extends Item {
 
     @Override
     public String toString() {
-        return "House: " + "\n size: " + size + "\n location: " + location + "\n noOfRooms: " + noOfRooms + "\n noOfFloors: " + noOfFloors + "\n Price: " + getPrice();
+        return "House: " + size + ", " + location + ", " + noOfRooms + ", " + noOfFloors + ", " + getPrice() + "$, " + getYear() + ", " + getCondition();
     }
     
 }

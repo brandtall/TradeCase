@@ -6,26 +6,33 @@
 package javaapplication1;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author webya
  */
 public class Item {
-    private double price;
+    private String price;
     private Seller Owner;
     private String year;
     private String condition;
-    private ArrayList<Offers> offersList;
+    private String status = "AVAILABALE";
+    protected ImageIcon icon;
+//    protected ArrayList<Offers> offersList;
 
-    public Item(double price, Seller Owner, String year, String condition) {
+    public Item(String price, Seller Owner, String year, String condition) {
         this.price = price;
         this.Owner = Owner;
         this.year = year;
         this.condition = condition;
     }
 
-    public double getPrice() {
+    public String getStatus() {
+        return status;
+    }
+
+    public String getPrice() {
         return price;
     }
 
@@ -33,8 +40,12 @@ public class Item {
         return Owner;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setOwner(Seller Owner) {
@@ -56,9 +67,9 @@ public class Item {
     public void setCondition(String condition) {
         this.condition = condition;
     }
-    public void addOffer(Offers Off) {
-        offersList.add(Off);
-    }
+//    public void addOffer(Offers Off) {
+//        offersList.add(Off);
+//    }
     @Override
     public String toString() {
         return "Item{" +  "price=" + price + ", Owner=" + Owner + ", year=" + year + ", condition=" + condition + '}';
