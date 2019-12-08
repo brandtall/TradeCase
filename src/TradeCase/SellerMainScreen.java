@@ -17,6 +17,8 @@ import javax.swing.ImageIcon;
  */
 public class SellerMainScreen extends javax.swing.JFrame {
 
+    Seller s1;
+
     /**
      * Creates new form SellerMainScreen
      */
@@ -24,6 +26,10 @@ public class SellerMainScreen extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+    }
+
+    public void recieveSeller(Seller seller) {
+        s1 = seller;
     }
 
     /**
@@ -178,11 +184,14 @@ public class SellerMainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new addCar().setVisible(true);
+        addCar ac1 = new addCar();
+        ac1.recieveSeller(s1);
+        ac1.setTitle("Seller: " + s1.getName());
+        ac1.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Seller s1 = SignUp.seller;
+
         DefaultListModel il = new DefaultListModel();
         for (int i = 0; i < s1.forSale.size(); i++) {
             il.addElement(s1.forSale.get(i).toString() + "\n --- \n");
@@ -198,17 +207,20 @@ public class SellerMainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new addHouse().setVisible(true);
+        addHouse ah1 = new addHouse();
+        ah1.recieveSeller(s1);
+        ah1.setTitle("Seller: " + s1.getName());
+        ah1.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         int i = itemsList.getSelectedIndex();
         if (i >= 0) {
-            if (SignUp.seller.forSale.get(i).getStatus().equals("NO PHOTO")) {
+            if (s1.forSale.get(i).icon == null) {
                 jLabel3.setIcon(null);
                 jLabel3.setText("No Photo Provided");
             } else {
-                Image img = SignUp.seller.forSale.get(i).icon.getImage().getScaledInstance(257, 157, java.awt.Image.SCALE_SMOOTH);
+                Image img = s1.forSale.get(i).icon.getImage().getScaledInstance(257, 157, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(img);
                 jLabel3.setIcon(icon);
                 jLabel3.setText(i + "");
@@ -221,13 +233,13 @@ public class SellerMainScreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jList1.getSelectedIndex() > -1) {
-            Offers offer = SignUp.seller.offerList.get(jList1.getSelectedIndex());
-            if (SignUp.seller.offerList.contains(offer)) {
-                SignUp.seller.sell(offer);
+            Offers offer = s1.offerList.get(jList1.getSelectedIndex());
+            if (s1.offerList.contains(offer)) {
+                s1.sell(offer);
             }
 
         }
-        Seller s1 = SignUp.seller;
+
         DefaultListModel il = new DefaultListModel();
         for (int i = 0; i < s1.forSale.size(); i++) {
             il.addElement(s1.forSale.get(i).toString() + "\n --- \n");
@@ -244,9 +256,8 @@ public class SellerMainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Item item = SignUp.seller.forSale.get(itemsList.getSelectedIndex());
-        SignUp.seller.removeItemFromSale(item);
-        Seller s1 = SignUp.seller;
+        Item item = s1.forSale.get(itemsList.getSelectedIndex());
+        s1.removeItemFromSale(item);
         DefaultListModel il = new DefaultListModel();
         for (int i = 0; i < s1.forSale.size(); i++) {
             il.addElement(s1.forSale.get(i).toString() + "\n --- \n");

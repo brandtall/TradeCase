@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
  */
 public class BuyerMainScreen extends javax.swing.JFrame {
 
+    Buyer b1;
+
     /**
      * Creates new form BuyerMainScreen
      */
@@ -23,6 +25,10 @@ public class BuyerMainScreen extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+    }
+
+    public void recieveBuyer(Buyer buyer) {
+        b1 = buyer;
     }
 
     /**
@@ -194,27 +200,26 @@ public class BuyerMainScreen extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (jList1.getSelectedIndex() > -1) {
 
-            Item item = (Item) SignUp.seller.forSale.get(jList1.getSelectedIndex());
-            if (SignUpBuyer.buyer.cart.contains(item) && SignUp.seller.offerList.contains(item)) {
+            Item item = (Item) Seller.market.get(jList1.getSelectedIndex());
+            if (b1.cart.contains(item) && item.getOwner().offerList.contains(item)) {
                 jLabel5.setText("Item has already been added");
             } else {
                 if (item.getStatus().equals("SOLD")) {
                     jLabel5.setText("Item is SOLD");
                 } else {
-                    SignUpBuyer.buyer.addToCart(item);
+                    b1.addToCart(item);
                     jLabel5.setText("Item has been added");
                 }
             }
 
         }
-        Seller s1 = SignUp.seller;
+
         DefaultListModel il = new DefaultListModel();
-        for (int i = 0; i < s1.forSale.size(); i++) {
-            il.addElement(s1.forSale.get(i).toString() + "\n --- \n");
+        for (int i = 0; i < Seller.market.size(); i++) {
+            il.addElement(Seller.market.get(i).toString() + "\n --- \n");
 
         }
         jList1.setModel(il);
-        Buyer b1 = SignUpBuyer.buyer;
         DefaultListModel ol = new DefaultListModel();
         for (int i = 0; i < b1.cart.size(); i++) {
             ol.addElement(b1.cart.get(i).toString() + "\n --- \n");
@@ -227,23 +232,21 @@ public class BuyerMainScreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jList2.getSelectedIndex() > -1) {
-            Item item = (Item) SignUpBuyer.buyer.cart.get(jList2.getSelectedIndex());
+            Item item = (Item) b1.cart.get(jList2.getSelectedIndex());
 
-            Offers offer = new Offers(jTextField1.getText(), SignUpBuyer.buyer, item);
+            Offers offer = new Offers(jTextField1.getText(), b1, item);
 
-            SignUpBuyer.buyer.checkout(SignUp.seller, offer);
+            b1.checkout(item.getOwner(), offer);
 
             jLabel6.setText("Offer Sent!");
 
         }
-        Seller s1 = SignUp.seller;
         DefaultListModel il = new DefaultListModel();
-        for (int i = 0; i < s1.forSale.size(); i++) {
-            il.addElement(s1.forSale.get(i).toString() + "\n --- \n");
+        for (int i = 0; i < Seller.market.size(); i++) {
+            il.addElement(Seller.market.get(i).toString() + "\n --- \n");
 
         }
         jList1.setModel(il);
-        Buyer b1 = SignUpBuyer.buyer;
         DefaultListModel ol = new DefaultListModel();
         for (int i = 0; i < b1.cart.size(); i++) {
             ol.addElement(b1.cart.get(i).toString() + "\n --- \n");
@@ -255,14 +258,12 @@ public class BuyerMainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Seller s1 = SignUp.seller;
         DefaultListModel il = new DefaultListModel();
-        for (int i = 0; i < s1.forSale.size(); i++) {
-            il.addElement(s1.forSale.get(i).toString() + "\n --- \n");
+        for (int i = 0; i < Seller.market.size(); i++) {
+            il.addElement(Seller.market.get(i).toString() + "\n --- \n");
 
         }
         jList1.setModel(il);
-        Buyer b1 = SignUpBuyer.buyer;
         DefaultListModel ol = new DefaultListModel();
         for (int i = 0; i < b1.cart.size(); i++) {
             ol.addElement(b1.cart.get(i).toString() + "\n --- \n");
@@ -276,11 +277,11 @@ public class BuyerMainScreen extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int i = jList1.getSelectedIndex();
         if (i >= 0) {
-            if (SignUp.seller.forSale.get(i).getStatus().equals("NO PHOTO")) {
+            if (Seller.market.get(i).icon == null) {
                 jLabel1.setIcon(null);
                 jLabel1.setText("No Photo Provided");
             } else {
-                Image img = SignUp.seller.forSale.get(i).icon.getImage().getScaledInstance(200, 130, java.awt.Image.SCALE_SMOOTH);
+                Image img = Seller.market.get(i).icon.getImage().getScaledInstance(200, 130, java.awt.Image.SCALE_SMOOTH);
                 ImageIcon icon = new ImageIcon(img);
                 jLabel1.setIcon(icon);
             }

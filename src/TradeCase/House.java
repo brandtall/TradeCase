@@ -58,7 +58,7 @@ public class House extends Item {
 
     @Override
     public String toString() {
-        return "House: " + size + ", " + location + ", " + noOfRooms + ", " + noOfFloors + ", " + getPrice() + "$, " + getYear() + ", " + getCondition() + ", " + getStatus();
+        return "House: " + size + ", " + location + ", " + noOfRooms + ", " + noOfFloors + ", " + getPrice() + "$, " + getYear() + ", " + getCondition() + ", " + getOwner() + ", " + getStatus();
     }
     
 }

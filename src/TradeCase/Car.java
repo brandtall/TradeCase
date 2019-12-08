@@ -47,7 +47,7 @@ public class Car extends Item{
 
     @Override
     public String toString() {
-        return "Car: " + make + ", " + engineType + ", " + milage + ", " + getPrice() + "$, " + getYear() + ", " + getCondition() + ", " + getStatus();
+        return "Car: " + make + ", " + engineType + ", " + milage + ", " + getPrice() + "$, " + getYear() + ", " + getCondition() + ", "  + getOwner() + ", " + getStatus();
     }
     
     

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package TradeCase;
+
 import java.awt.Image;
 import java.io.File;
 
@@ -13,18 +14,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+
 /**
  *
  * @author webya
  */
 public class addHouse extends javax.swing.JFrame {
+
     ImageIcon icon;
+    Seller s1;
+
     /**
      * Creates new form addHouse1
      */
     public addHouse() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    }
+
+    public void recieveSeller(Seller seller) {
+        s1 = seller;
     }
 
     /**
@@ -253,19 +262,15 @@ public class addHouse extends javax.swing.JFrame {
         String price = jTextField5.getText();
         String year = jTextField6.getText();
         String condition = (String) jComboBox2.getSelectedItem();
-        Seller s1 = SignUp.seller;
         Item j = new House(size, location, noRooms, noFloors, price, s1, year, condition);
-        if (icon != null) {
-            j.icon = icon;
-        } else {
-            j.setStatus("NO PHOTO");
-        }
+        j.icon = icon;
         s1.addItemForSale(j);
+        Seller.market.add(j);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                final JFileChooser fc = new JFileChooser();
+        final JFileChooser fc = new JFileChooser();
         int returnVal = fc.showOpenDialog(this);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -275,15 +280,20 @@ public class addHouse extends javax.swing.JFrame {
             try {
                 status.setText("Opening image file");
                 img = ImageIO.read(file);
-                Image newImg = img.getScaledInstance(225, 183, java.awt.Image.SCALE_SMOOTH);
-                icon = new ImageIcon(newImg);
-                jLabel9.setIcon(icon);
+                if (img == null) {
+                    jLabel9.setText("Please Select a valid Image!");
+                } else {
+                    Image newImg = img.getScaledInstance(225, 183, java.awt.Image.SCALE_SMOOTH);
+                    icon = new ImageIcon(newImg);
+                    jLabel9.setIcon(icon);
+                }
+
             } catch (IOException ex) {
                 status.setText("Error loading the image");
             }
 
         } else {
-            status.setText("Open command cancelled by user." );
+            status.setText("Open command cancelled by user.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

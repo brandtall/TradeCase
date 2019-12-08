@@ -11,8 +11,7 @@ package TradeCase;
  */
 public class SignUpBuyer extends javax.swing.JFrame {
 
-    protected static Buyer buyer;
-    static BuyerMainScreen bmc = new BuyerMainScreen();
+    protected Buyer buyer;
 
     /**
      * Creates new form SignUp
@@ -20,7 +19,6 @@ public class SignUpBuyer extends javax.swing.JFrame {
     public SignUpBuyer() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        bmc.setVisible(false);
     }
 
     /**
@@ -123,9 +121,10 @@ public class SignUpBuyer extends javax.swing.JFrame {
         String phoneNumber = jTextField2.getText();
         String address = jTextField3.getText();
         buyer = new Buyer(name, phoneNumber, address);
-        Introductory.bsu = "YES";
-        bmc.setTitle("BUYER: " + SignUpBuyer.buyer.getName());
-        bmc.setVisible(true);
+        BuyerMainScreen b1 = new BuyerMainScreen();
+        b1.setTitle("BUYER: " + buyer.getName());
+        b1.recieveBuyer(buyer);
+        b1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

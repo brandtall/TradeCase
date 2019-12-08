@@ -5,23 +5,33 @@
  */
 package TradeCase;
 
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author webya
  */
 public class Introductory extends javax.swing.JFrame {
-    SignUp s1 = new SignUp();
-    SignUpBuyer b1 = new SignUpBuyer();
-    static String ssu = "NO";
-    static String bsu = "NO";
 
     /**
      * Creates new form Introductory
      */
     public Introductory() {
         initComponents();
-         s1.setVisible(false);
-         b1.setVisible(false);
+        try {
+            Image img = ImageIO.read(getClass().getResourceAsStream("handshake-512.png"));
+            Image newImg = img.getScaledInstance(210, 125, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(newImg);
+            title.setIcon(icon);
+            this.setTitle("TradeCase");
+        } catch (IOException exe) {
+            title.setText("TradeCase");
+        }
+
     }
 
     /**
@@ -66,16 +76,16 @@ public class Introductory extends javax.swing.JFrame {
                 .addComponent(buyerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sellerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buyerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -88,21 +98,17 @@ public class Introductory extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sellerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellerButtonActionPerformed
-        if(ssu.equals("NO")) {
-            s1.setVisible(true);
-        }
-        else {
-         SignUp.scm.setVisible(true);
-        }
+
+        new SignUp().setVisible(true);
+
+
     }//GEN-LAST:event_sellerButtonActionPerformed
-    
+
     private void buyerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyerButtonActionPerformed
-        if (bsu.equals("NO")) {
-         b1.setVisible(true);   
-        } else {
-         SignUpBuyer.bmc.setVisible(true);
-        }
-        
+
+        new SignUpBuyer().setVisible(true);
+
+
     }//GEN-LAST:event_buyerButtonActionPerformed
 
     /**

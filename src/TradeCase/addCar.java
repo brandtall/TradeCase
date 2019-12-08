@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 public class addCar extends javax.swing.JFrame {
 
     protected ImageIcon icon;
+    protected Seller s1;
 //    SellerMainScreen smc = new SellerMainScreen();
 //    static protected ArrayList<BufferedImage> imgs = new ArrayList();
 
@@ -33,6 +34,9 @@ public class addCar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 //        smc.setVisible(false);
 
+    }
+    public void recieveSeller(Seller seller) {
+        s1 = seller;
     }
 
     /**
@@ -213,14 +217,10 @@ public class addCar extends javax.swing.JFrame {
         String price = jTextField4.getText();
         String year = jTextField5.getText();
         String condition = (String) jComboBox2.getSelectedItem();
-        Seller s1 = SignUp.seller;
         Item i = new Car(make, engineType, milage, price, s1, year, condition);
-        if (icon != null) {
-            i.icon = icon;
-        } else {
-            i.setStatus("NO PHOTO");
-        }
+        i.icon = icon;
         s1.addItemForSale(i);
+        Seller.market.add(i);
         this.setVisible(false);
 //        smc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -240,9 +240,14 @@ public class addCar extends javax.swing.JFrame {
             try {
                 status.setText("Opening image file");
                 img = ImageIO.read(file);
+                if (img == null) {
+                jLabel8.setText("Please Select a Valid Image!");
+                }
+                else {
                 Image newImg = img.getScaledInstance(340, 211, java.awt.Image.SCALE_SMOOTH);
                 icon = new ImageIcon(newImg);
                 jLabel8.setIcon(icon);
+                }
 
             } catch (IOException ex) {
                 status.setText("Error loading the image");

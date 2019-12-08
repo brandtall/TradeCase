@@ -11,7 +11,7 @@ package TradeCase;
  */
 public class SignUp extends javax.swing.JFrame {
 
-    protected static Seller seller;
+    protected Seller seller;
     static SellerMainScreen scm = new SellerMainScreen();
 
     /**
@@ -123,9 +123,10 @@ public class SignUp extends javax.swing.JFrame {
         String phoneNumber = jTextField2.getText();
         String address = jTextField3.getText();
         seller = new Seller(name, phoneNumber, address);
-        Introductory.ssu = "YES";
-        scm.setTitle("SELLER: " + SignUp.seller.getName());
-        scm.setVisible(true);
+        SellerMainScreen s1 = new SellerMainScreen();
+        s1.recieveSeller(seller);
+        s1.setTitle("SELLER: " + seller.getName());
+        s1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
