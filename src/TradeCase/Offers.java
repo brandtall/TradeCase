@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package TradeCase;
 
 /**
  *
@@ -38,7 +38,7 @@ public class Offers {
 
     @Override
     public String toString() {
-        return "Offers: " + bid + ", " + Buyer + ", " + item.toString();
+        return "Offers: " + bid + "$, " + Buyer + ", " + item.toString();
     }
     
 }

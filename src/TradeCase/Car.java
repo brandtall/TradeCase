@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package TradeCase;
 
 /**
  *
@@ -47,7 +47,7 @@ public class Car extends Item{
 
     @Override
     public String toString() {
-        return "Car: " + make + ", " + engineType + ", " + milage + ", " + getPrice() + "$, " + getYear() + ", " + getCondition();
+        return "Car: " + make + ", " + engineType + ", " + milage + ", " + getPrice() + "$, " + getYear() + ", " + getCondition() + ", " + getStatus();
     }
     
     

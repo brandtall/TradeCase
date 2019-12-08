@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package TradeCase;
+
+import javax.swing.JFrame;
 
 /**
  *
  * @author webya
  */
-public class JavaApplication1 {
+public class TradeCase {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Introductory app = new Introductory();
+        app.setVisible(true);
     }
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package TradeCase;
 import java.awt.Image;
 import java.io.File;
 
@@ -91,7 +91,7 @@ public class addHouse extends javax.swing.JFrame {
 
         jLabel5.setText("Price:");
 
-        jTextField5.setText("$$");
+        jTextField5.setText("##");
 
         jLabel6.setText("Year:");
 

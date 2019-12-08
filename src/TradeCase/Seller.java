@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package TradeCase;
 
 import java.util.ArrayList;
 
@@ -27,13 +27,22 @@ public class Seller extends Person{
         offerList.add(offer);
     }
     public void sell(Offers offer) {
+        ArrayList<Offers> delete = new ArrayList();
+        Item o1 = (Item) offer.item;
         for (int i = 0; i < offerList.size(); i++) {
-            if(offerList.get(i).item.equals(offer.item)) {
-                offerList.remove(i);
-                forSale.get(forSale.indexOf(offer.item)).setStatus("SOLD");
-                break;
+            if(offerList.get(i).item.equals(o1)) {
+                delete.add(offerList.get(i));
+            }
+            
+        }
+        for (int i = 0; i < offerList.size(); i++) {
+            for (int j = 0; j < delete.size(); j++) {
+                if(offerList.get(i).equals(delete.get(j))) {
+                    offerList.remove(i);
+                }
             }
         }
+        forSale.get(forSale.indexOf(offer.item)).setStatus("SOLD");
     }
-
+    
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package TradeCase;
 
 //import java.util.ArrayList;
 import java.awt.Image;
@@ -195,11 +195,15 @@ public class BuyerMainScreen extends javax.swing.JFrame {
         if (jList1.getSelectedIndex() > -1) {
 
             Item item = (Item) SignUp.seller.forSale.get(jList1.getSelectedIndex());
-            if (item.getStatus().equals("SOLD")) {
-                jLabel5.setText("Item is SOLD");
+            if (SignUpBuyer.buyer.cart.contains(item) && SignUp.seller.offerList.contains(item)) {
+                jLabel5.setText("Item has already been added");
             } else {
-                SignUpBuyer.buyer.addToCart(item);
-                jLabel5.setText("Item has been added");
+                if (item.getStatus().equals("SOLD")) {
+                    jLabel5.setText("Item is SOLD");
+                } else {
+                    SignUpBuyer.buyer.addToCart(item);
+                    jLabel5.setText("Item has been added");
+                }
             }
 
         }

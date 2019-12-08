@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package TradeCase;
 
 /**
  *
@@ -58,7 +58,7 @@ public class House extends Item {
 
     @Override
     public String toString() {
-        return "House: " + size + ", " + location + ", " + noOfRooms + ", " + noOfFloors + ", " + getPrice() + "$, " + getYear() + ", " + getCondition();
+        return "House: " + size + ", " + location + ", " + noOfRooms + ", " + noOfFloors + ", " + getPrice() + "$, " + getYear() + ", " + getCondition() + ", " + getStatus();
     }
     
 }
