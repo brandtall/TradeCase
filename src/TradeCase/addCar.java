@@ -15,10 +15,6 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author webya
- */
 public class addCar extends javax.swing.JFrame {
 
     protected ImageIcon icon;

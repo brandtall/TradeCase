@@ -7,10 +7,7 @@ package TradeCase;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author webya
- */
+
 public class Seller extends Person{
     static protected ArrayList<Item> market = new ArrayList();
     protected ArrayList<Item> forSale = new ArrayList();

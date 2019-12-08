@@ -5,10 +5,7 @@
  */
 package TradeCase;
 
-/**
- *
- * @author webya
- */
+
 public class House extends Item {
 
     private String size;

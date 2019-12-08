@@ -5,12 +5,6 @@
  */
 package TradeCase;
 
-
-
-/**
- *
- * @author webya
- */
 public class Person {
 
     private String name;

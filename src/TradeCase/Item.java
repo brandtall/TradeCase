@@ -8,10 +8,6 @@ package TradeCase;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author webya
- */
 public class Item {
     private String price;
     private Seller Owner;

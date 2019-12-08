@@ -5,10 +5,6 @@
  */
 package TradeCase;
 
-/**
- *
- * @author webya
- */
 public class Offers {
     protected Item item;
     private String bid;

@@ -7,10 +7,6 @@ package TradeCase;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author webya
- */
 public class Buyer extends Person{
     ArrayList<Item> cart = new ArrayList();
     public Buyer(String name, String phoneNumber, String Address) {

@@ -11,10 +11,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author webya
- */
+
 public class SellerMainScreen extends javax.swing.JFrame {
 
     Seller s1;

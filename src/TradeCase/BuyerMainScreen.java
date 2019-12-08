@@ -10,10 +10,7 @@ import java.awt.Image;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author webya
- */
+
 public class BuyerMainScreen extends javax.swing.JFrame {
 
     Buyer b1;

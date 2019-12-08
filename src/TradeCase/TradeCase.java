@@ -7,10 +7,6 @@ package TradeCase;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author webya
- */
 public class TradeCase {
 
     /**

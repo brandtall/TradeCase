@@ -11,10 +11,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author webya
- */
+
 public class Introductory extends javax.swing.JFrame {
 
     /**

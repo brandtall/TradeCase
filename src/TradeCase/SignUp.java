@@ -5,10 +5,6 @@
  */
 package TradeCase;
 
-/**
- *
- * @author webya
- */
 public class SignUp extends javax.swing.JFrame {
 
     protected Seller seller;

@@ -5,10 +5,7 @@
  */
 package TradeCase;
 
-/**
- *
- * @author webya
- */
+
 public class Car extends Item{
     private String make;
     private String engineType;
